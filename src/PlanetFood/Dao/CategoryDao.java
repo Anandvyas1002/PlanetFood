@@ -64,6 +64,7 @@ public class CategoryDao  {
        
        return "C"+id;
     }
+    //Debugged addProduct method
      public static String addProduct(String cat_id,String cat_name)throws SQLException
     {
         Connection conn= DBConnection.getConnection();
@@ -76,10 +77,10 @@ public class CategoryDao  {
          ps.setString(1,cat_id);
          ps.setString(2,cat_name);
          int count=ps.executeUpdate();
-         if(count==0)
-            return "false";
-         else
+         if(count!=0)
             return "true";
+         else
+            return "false";
         
     }
    
